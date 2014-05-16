@@ -33,12 +33,12 @@ exports.updateJson = function(callback) {
 
 					if (existingTrash) { // Update coordinates
 						console.log("Updating old trash:" + feature.properties.ROSKIS_ID);
-						currentData[feature.properties.ROSKIS_ID].coordinates = feature.geometry.coordinates;
+						currentData[feature.properties.ROSKIS_ID].coordinates = feature.geometry.coordinates.reverse();
 					}
 					else {
 						console.log("Creating new trash: " + feature.properties.ROSKIS_ID);
 						currentData[feature.properties.ROSKIS_ID] = { 
-						coordinates: feature.geometry.coordinates,
+						coordinates: feature.geometry.coordinates.reverse(),
 						count: 0 }
 					}
 				});
