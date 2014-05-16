@@ -1,0 +1,16 @@
+$primary-color: white;
+
+body {
+	color: $primary-color;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+}
+
+
+h1 {
+	text-transform:uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 3rem;
+	color: $primary-color;
+	text-align: center;
+}
