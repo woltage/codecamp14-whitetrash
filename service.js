@@ -1,5 +1,6 @@
 var http = require("http");
 var fs = require('fs');
+var gju = require('geojson-utils');
 
 var FILE_NAME = "roskikset.json";
 
@@ -33,12 +34,12 @@ exports.updateJson = function(callback) {
 
 					if (existingTrash) { // Update coordinates
 						console.log("Updating old trash:" + feature.properties.ROSKIS_ID);
-						currentData[feature.properties.ROSKIS_ID].coordinates = feature.geometry.coordinates;
+						currentData[feature.properties.ROSKIS_ID].coordinates = feature.geometry.coordinates.reverse();
 					}
 					else {
 						console.log("Creating new trash: " + feature.properties.ROSKIS_ID);
 						currentData[feature.properties.ROSKIS_ID] = { 
-						coordinates: feature.geometry.coordinates,
+						coordinates: feature.geometry.coordinates.reverse(),
 						count: 0 }
 					}
 				});
@@ -92,3 +93,20 @@ function saveData(data, callback) {
 		}
 	});
 };
+
+function distance(p1, p2) {
+    return gju.pointDistance({type: 'Point', coordinates: p1},
+                             {type: 'Point', coordinates: p2})
+}
+
+function distancesTo(point, data) {
+    return Object.keys(data).map(function(key) {
+        return {trashId: key, dist: distance(point, data[key].coordinates)};
+    });
+}
+
+function closestTrashIdTo(point, trashes) {
+    return distancesTo(point, trashes).sort(function (a, b) {
+        return a.dist - b.dist;
+    }).slice(0,1)[0].trashId;
+}

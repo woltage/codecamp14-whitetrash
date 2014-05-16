@@ -6,3 +6,4 @@ pids
 *.seed
 build/Release
 node_modules
+roskikset.json

@@ -94,6 +94,8 @@ h1 {
   font-size: 1.4rem;
   box-sizing: border-box;
   text-align: center;
+  color: white;
+  text-decoration: none;
 }
 
 /* VIEWS
@@ -114,7 +116,13 @@ h1 {
   width: 300px;
 }
 
-/* line 28, ../../styles/sass/main.scss */
+/* line 1, ../../styles/sass/views/_map.scss */
+#map-canvas {
+  height: 100vh;
+  width: 100%;
+}
+
+/* line 29, ../../styles/sass/main.scss */
 section {
   width: 100%;
 }
