@@ -8,6 +8,15 @@ $(document).ready(function() {
             longitude = data.coords.longitude;
             mapInit(latitude, longitude);
         });
+        navigator.geolocation.watchPosition(function (data) {
+            if (userMarker) {
+                userMarker.setPosition(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
+                console.log(userMarker);
+            }
+            if (map) {
+                map.panTo(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
+            }
+        });
     } else {
         error('Sad banda :,(');
     }
@@ -26,6 +35,7 @@ $(document).ready(function() {
     });
 });
 
+var map = null;
 
 function mapInit(lat, lng) {
 
@@ -44,8 +54,10 @@ function mapInit(lat, lng) {
 
 }
 
+var userMarker = null;
+
 function addUser(lat,lng) {
-    marker = new google.maps.Marker({
+    userMarker = new google.maps.Marker({
         position: new google.maps.LatLng(lat,lng),
         map: map,
         icon: '/static/img/user-marker.png',
