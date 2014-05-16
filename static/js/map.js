@@ -72,7 +72,7 @@ function getLocations(lat, lng) {
         success: function(json){
             console.log("fetched markers");
             json.slice(0, 1).forEach(function(trash) {
-                addMarker(trash.coordinates[0], trash.coordinates[1], true);
+                addMarker(trash.coordinates[0], trash.coordinates[1], trash.dist < 50);
                 addAcceptZone(trash.coordinates[0], trash.coordinates[1]);
             });
             json.slice(1,10).forEach(function(trash) {
