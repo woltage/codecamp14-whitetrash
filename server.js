@@ -8,7 +8,10 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
 app.get("/", function(req, res) {
-	res.render('index', service.getSomeShit());
+	res.render('index');
+});
+app.get("/map", function(req, res) {
+	res.render('map');
 });
 
 app.get('/update', function(req, res) {
