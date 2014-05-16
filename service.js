@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var FILE_NAME = "roskikset.json";
 
-exports.updateJson = function() {
+exports.updateJson = function(callback) {
 
 	http.get({
 		host: "tampere.navici.com",
@@ -19,22 +19,34 @@ exports.updateJson = function() {
 
 		response.on('end', function(){
 
-			var parsed = {};
-
-			console.log(responseText);
 			var json = JSON.parse(responseText);
 			
-			json.features.forEach(function(feature) {
-				parsed[feature.properties.ROSKIS_ID] = { 
-					coordinates: feature.geometry.coordinates,
-					count: 0
-				};
+			exports.getCurrentData(function(currentData) {
+				if (!currentData) {
+					currentData = {};
+				}
+
+				console.log(currentData);
+				json.features.forEach(function(feature) {
+
+					var existingTrash = currentData[feature.properties.ROSKIS_ID];
+
+					if (existingTrash) { // Update coordinates
+						console.log("Updating old trash:" + feature.properties.ROSKIS_ID);
+						currentData[feature.properties.ROSKIS_ID].coordinates = feature.geometry.coordinates;
+					}
+					else {
+						console.log("Creating new trash: " + feature.properties.ROSKIS_ID);
+						currentData[feature.properties.ROSKIS_ID] = { 
+						coordinates: feature.geometry.coordinates,
+						count: 0 }
+					}
+				});
+				saveData(currentData, function(updatedData) {
+					console.log("ok");
+					callback(updatedData);
+				});
 			});
-
-			saveData(parsed, function() {
-				console.log("ok");
-			})
-
 		});
 	});
 }
