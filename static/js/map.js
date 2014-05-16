@@ -87,6 +87,7 @@ function getLocations(lat, lng) {
             json.slice(0, 1).forEach(function(trash) {
                 addMarker(trash.coordinates[0], trash.coordinates[1], trash.dist < 50);
                 addAcceptZone(trash.coordinates[0], trash.coordinates[1]);
+                document.getElementById("markTrash").disabled = trash.dist >= 50;
             });
             json.slice(1,10).forEach(function(trash) {
                 addMarker(trash.coordinates[0], trash.coordinates[1], false);
