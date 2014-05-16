@@ -28,6 +28,7 @@ function addMarker(lat,lng) {
     marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat,lng),
         map: map,
+        icon: '/static/img/roskis-icon.png',
     });
 }
 
