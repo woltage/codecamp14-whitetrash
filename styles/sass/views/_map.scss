@@ -10,8 +10,42 @@
     cursor: pointer;
     border: 2px solid gray;
     color: black;
+    padding-top: 6px;
 }
 
 .map-page {
 	height: 100vh;
 }
+
+.avatar-area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 12000;
+	background: white;
+	width: 100%;
+	padding: 4px;
+	.avatar-frame,.avatar-frame img{
+		width: 100px;
+		height: 100px;
+		-webkit-border-radius: 50px; /* Saf3+, Chrome */
+		border-radius: 50px; /* Opera 10.5, IE 9 */
+		/*-moz-border-radius: 30px;  Disabled for FF1+ */
+	}
+	.title, .name {
+		display: inline-block;
+		width: 200px;
+		color: gray;
+		position: absolute;
+		left: 110px;
+	}
+
+	.name {
+		top: 28px;
+
+	}
+	.title {
+		top: 56px;
+	}
+}
+

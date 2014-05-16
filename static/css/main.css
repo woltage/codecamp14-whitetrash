@@ -130,11 +130,49 @@ h1 {
   cursor: pointer;
   border: 2px solid gray;
   color: black;
+  padding-top: 6px;
 }
 
-/* line 15, ../../styles/sass/views/_map.scss */
+/* line 16, ../../styles/sass/views/_map.scss */
 .map-page {
   height: 100vh;
+}
+
+/* line 20, ../../styles/sass/views/_map.scss */
+.avatar-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12000;
+  background: white;
+  width: 100%;
+  padding: 4px;
+}
+/* line 28, ../../styles/sass/views/_map.scss */
+.avatar-area .avatar-frame, .avatar-area .avatar-frame img {
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50px;
+  /* Saf3+, Chrome */
+  border-radius: 50px;
+  /* Opera 10.5, IE 9 */
+  /*-moz-border-radius: 30px;  Disabled for FF1+ */
+}
+/* line 35, ../../styles/sass/views/_map.scss */
+.avatar-area .title, .avatar-area .name {
+  display: inline-block;
+  width: 200px;
+  color: gray;
+  position: absolute;
+  left: 110px;
+}
+/* line 43, ../../styles/sass/views/_map.scss */
+.avatar-area .name {
+  top: 28px;
+}
+/* line 47, ../../styles/sass/views/_map.scss */
+.avatar-area .title {
+  top: 56px;
 }
 
 /* line 29, ../../styles/sass/main.scss */
