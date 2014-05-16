@@ -185,6 +185,12 @@ h1 {
 .avatar-area .trashes, .avatar-area .cans {
   right: 64px;
 }
+/* line 58, ../../styles/sass/views/_map.scss */
+.avatar-area .badge {
+  position: absolute;
+  top: 50px;
+  left: 209px;
+}
 
 /* line 29, ../../styles/sass/main.scss */
 section {
