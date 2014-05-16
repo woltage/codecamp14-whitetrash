@@ -39,6 +39,13 @@ function mapInit(lat, lng) {
 
 }
 
+function addUser(lat,lng) {
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat,lng),
+        map: map,
+        icon: '/static/img/user-marker.png',
+    });
+}
 
 function addMarker(lat,lng,isNearest) {
     marker = new google.maps.Marker({
@@ -71,6 +78,7 @@ function getLocations(lat, lng) {
         data: {lat: lat, lon: lng},
         success: function(json){
             console.log("fetched markers");
+            addUser(lat, lng);
             json.slice(0, 1).forEach(function(trash) {
                 addMarker(trash.coordinates[0], trash.coordinates[1], trash.dist < 50);
                 addAcceptZone(trash.coordinates[0], trash.coordinates[1]);
