@@ -30,31 +30,31 @@
 	width: 100%;
 	padding: 4px;
 	.avatar-frame,.avatar-frame img{
-		width: 100px;
-		height: 100px;
-		-webkit-border-radius: 50px; /* Saf3+, Chrome */
-		border-radius: 50px; /* Opera 10.5, IE 9 */
+		width: 10vh;
+		height: 10vh;
+		-webkit-border-radius: 5vh; /* Saf3+, Chrome */
+		border-radius: 5vh; /* Opera 10.5, IE 9 */
 		/*-moz-border-radius: 30px;  Disabled for FF1+ */
 	}
 	.title, .name, .trashes, .cans {
 		display: inline-block;
-		width: 240px;
+		width: 34vw;
 		color: gray;
 		position: absolute;
-		font-size: 1.4rem;
+		font-size: 2.4vh;
 	}
 
 	.name, .title {
-		left: 110px;
+		left: 11vh;
 	}
 	.name, .trashes {
-		top: 28px;
+		top: 2vh;
 	}
 	.title, .cans {
-		top: 56px;
+		top: 6vh;
 	}
 	.trashes, .cans {
-		right: 64px;
+		right: 2vh;
 	}
 	.badge {
 		margin-left: 8px;
