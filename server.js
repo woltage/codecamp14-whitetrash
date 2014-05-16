@@ -17,6 +17,12 @@ app.get('/ok', function(req, res){
 	res.end();
 });
 
+app.get('/update', function(req, res) {
+	service.updateJson();
+	res.write("OK");
+	res.end();
+})
+
 app.use("/static/", express.static(__dirname + '/static'));
 app.listen(PORT);
 console.log('Listening on port ' + PORT);
