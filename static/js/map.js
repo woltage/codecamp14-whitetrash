@@ -50,10 +50,10 @@ function addMarker(lat,lng,isNearest) {
 
 function addAcceptZone(lat,lng) {
     var acceptZone = {
-      strokeColor: '#FF0000',
+      strokeColor: '#1C75BC',
       strokeOpacity: 0.8,
       strokeWeight: 2,
-      fillColor: '#FF0000',
+      fillColor: '#1C75BC',
       fillOpacity: 0.35,
       center: new google.maps.LatLng(lat, lng),
       map: map,
