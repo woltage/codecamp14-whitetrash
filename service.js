@@ -137,6 +137,9 @@ function distancesTo(point, data) {
 }
 
 function closestTrashIdTo(point, trashes, limit) {
+    if (!trashes) {
+        return [];
+    }
     return distancesTo(point, trashes).sort(function (a, b) {
         return a.dist - b.dist;
     }).slice(0,limit);
