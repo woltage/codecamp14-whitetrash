@@ -1,0 +1,2 @@
+# White Trash
+Humoristinen roskienkeräyspeli
