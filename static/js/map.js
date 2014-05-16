@@ -1,19 +1,30 @@
 var map;
-
+var latitude;
+var longitude;
 $(document).ready(function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(data) {
-            mapInit(data.coords.latitude, data.coords.longitude);
+            latitude = data.coords.latitude;
+            longitude = data.coords.longitude;
+            mapInit(latitude, longitude);
         });
     } else {
         error('Sad banda :,(');
     }
+
+    $('#markTrash').click(function(){
+        console.log("click");
+        $.post("/trash", { lat:latitude, lon:longitude}).done(function(data) {
+            alert("Roskakori: " + data.trashId + "\nRoskia: " + data.count);
+            console.log(data);
+        });
+    });
 });
 
 
 function mapInit(lat, lng) {
 
-    getLocations();
+    getLocations(lat, lng);
     var mapOptions = {
         zoom: 18,
         center: new google.maps.LatLng(lat, lng),
@@ -51,21 +62,19 @@ function addAcceptZone(lat,lng) {
     var circle = new google.maps.Circle(acceptZone);
 }
 
-function getLocations() {
+function getLocations(lat, lng) {
     console.log("getting markers");
     $.ajax({
         type: "GET",
-        url: "/roskikset",
+        url: "/nearestTrashes",
         dataType: "json",
+        data: {lat: lat, lon: lng},
         success: function(json){
             console.log("fetched markers");
-            Object.keys(json).slice(0, 30).forEach(function(key) {
-                console.log(key);
-                console.log(json[key]);
-                addMarker(json[key].coordinates[0], json[key].coordinates[1]);
-                addAcceptZone(json[key].coordinates[0], json[key].coordinates[1]);
-
+            json.forEach(function(trash) {
+              addMarker(trash.coordinates[0], trash.coordinates[1]);
             });
+
         },
         error: function(err){
             console.log(err);

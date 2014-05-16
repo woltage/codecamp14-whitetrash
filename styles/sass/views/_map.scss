@@ -4,8 +4,61 @@
 }
 
 #markTrash {
-    background: none;
+    background: white;
     position: absolute;
     bottom: 50px;
+    left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:auto;
     cursor: pointer;
+    border: 2px solid gray;
+    color: gray;
+    padding-top: 6px;
 }
+
+.map-page {
+	height: 100vh;
+}
+
+.avatar-area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 12000;
+	background: white;
+	width: 100%;
+	padding: 4px;
+	.avatar-frame,.avatar-frame img{
+		width: 100px;
+		height: 100px;
+		-webkit-border-radius: 50px; /* Saf3+, Chrome */
+		border-radius: 50px; /* Opera 10.5, IE 9 */
+		/*-moz-border-radius: 30px;  Disabled for FF1+ */
+	}
+	.title, .name, .trashes, .cans {
+		display: inline-block;
+		width: 200px;
+		color: gray;
+		position: absolute;
+	}
+
+	.name, .title {
+		left: 110px;
+	}
+	.name, .trashes {
+		top: 28px;
+	}
+	.title, .cans {
+		top: 56px;
+	}
+	.trashes, .cans {
+		right: 64px;
+	}
+	.badge {
+		position: absolute;
+		top: 50px;
+		left: 209px;
+	}
+}
+

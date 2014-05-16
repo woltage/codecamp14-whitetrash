@@ -86,11 +86,11 @@ h1 {
 .btn {
   height: 64px;
   width: 300px;
-  margin-left: 30%;
+  margin: 0 auto;
   padding-top: 17px;
   border: 3px solid white;
   text-transform: uppercase;
-  display: inline-block;
+  display: block;
   font-size: 1.4rem;
   box-sizing: border-box;
   text-align: center;
@@ -110,7 +110,7 @@ h1 {
 /* line 7, ../../styles/sass/views/_starting-page.scss */
 .front-page h1 {
   margin: 0 auto;
-  padding-top: 60%;
+  padding-top: 480px;
   padding-bottom: 80px;
   display: block;
   width: 300px;
@@ -124,10 +124,72 @@ h1 {
 
 /* line 6, ../../styles/sass/views/_map.scss */
 #markTrash {
-  background: none;
+  background: white;
   position: absolute;
   bottom: 50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
+  border: 2px solid gray;
+  color: gray;
+  padding-top: 6px;
+}
+
+/* line 20, ../../styles/sass/views/_map.scss */
+.map-page {
+  height: 100vh;
+}
+
+/* line 24, ../../styles/sass/views/_map.scss */
+.avatar-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12000;
+  background: white;
+  width: 100%;
+  padding: 4px;
+}
+/* line 32, ../../styles/sass/views/_map.scss */
+.avatar-area .avatar-frame, .avatar-area .avatar-frame img {
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50px;
+  /* Saf3+, Chrome */
+  border-radius: 50px;
+  /* Opera 10.5, IE 9 */
+  /*-moz-border-radius: 30px;  Disabled for FF1+ */
+}
+/* line 39, ../../styles/sass/views/_map.scss */
+.avatar-area .title, .avatar-area .name, .avatar-area .trashes, .avatar-area .cans {
+  display: inline-block;
+  width: 200px;
+  color: gray;
+  position: absolute;
+}
+/* line 46, ../../styles/sass/views/_map.scss */
+.avatar-area .name, .avatar-area .title {
+  left: 110px;
+}
+/* line 49, ../../styles/sass/views/_map.scss */
+.avatar-area .name, .avatar-area .trashes {
+  top: 28px;
+}
+/* line 52, ../../styles/sass/views/_map.scss */
+.avatar-area .title, .avatar-area .cans {
+  top: 56px;
+}
+/* line 55, ../../styles/sass/views/_map.scss */
+.avatar-area .trashes, .avatar-area .cans {
+  right: 64px;
+}
+/* line 58, ../../styles/sass/views/_map.scss */
+.avatar-area .badge {
+  position: absolute;
+  top: 50px;
+  left: 209px;
 }
 
 /* line 29, ../../styles/sass/main.scss */
