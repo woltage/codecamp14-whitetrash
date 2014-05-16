@@ -13,4 +13,9 @@
 	
 	color: $primary-color;
 	text-decoration: none;
+
+	&:disabled {
+		color: gray;
+		text: lighten(gray, 20%);
+	}
 }

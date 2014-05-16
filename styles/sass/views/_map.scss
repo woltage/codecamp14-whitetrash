@@ -15,6 +15,10 @@
     border: 2px solid gray;
     color: gray;
     padding-top: 6px;
+    &:disabled {
+		color: gray;
+		background: lighten(gray, 20%);
+	}
 }
 
 .map-page {
