@@ -32,7 +32,7 @@
 	z-index: 12000;
 	background: white;
 	width: 100%;
-	padding: 4px;
+	padding: 8px;
 	.avatar-frame {
 		position: relative;
 		&:before {
@@ -67,7 +67,7 @@
 	}
 
 	.name, .title {
-		left: 11vh;
+		left: 12vh;
 	}
 	.name, .trashes {
 		top: 2vh;

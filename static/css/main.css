@@ -161,7 +161,7 @@ h1 {
   z-index: 12000;
   background: white;
   width: 100%;
-  padding: 4px;
+  padding: 8px;
 }
 /* line 36, ../../styles/sass/views/_map.scss */
 .avatar-area .avatar-frame {
@@ -206,7 +206,7 @@ h1 {
 }
 /* line 69, ../../styles/sass/views/_map.scss */
 .avatar-area .name, .avatar-area .title {
-  left: 11vh;
+  left: 12vh;
 }
 /* line 72, ../../styles/sass/views/_map.scss */
 .avatar-area .name, .avatar-area .trashes {
