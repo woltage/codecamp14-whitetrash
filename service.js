@@ -101,12 +101,18 @@ function distance(p1, p2) {
 
 function distancesTo(point, data) {
     return Object.keys(data).map(function(key) {
-        return {trashId: key, dist: distance(point, data[key].coordinates)};
+        return {trashId: key, coordinates: data[key], dist: distance(point, data[key].coordinates)};
     });
 }
 
-function closestTrashIdTo(point, trashes) {
+function closestTrashIdTo(point, trashes, limit) {
     return distancesTo(point, trashes).sort(function (a, b) {
         return a.dist - b.dist;
-    }).slice(0,1)[0].trashId;
+    }).slice(0,limit);
+}
+
+exports.getNearestTrashes = function(point, limit, cb) {
+    exports.getCurrentData(function (data) {
+        cb(closestTrashIdTo(point, data, limit));
+    });
 }

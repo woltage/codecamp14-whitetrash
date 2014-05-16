@@ -39,6 +39,13 @@ app.get('/mark/:id', function(req, res) {
 	});
 });
 
+app.get('/nearestTrashes', function(req, res) {
+    service.getNearestTrashes([req.query.lat,req.query.lon], 10, function (data) {
+		res.writeHead(200, {"Content-Type": "application/json"});
+		res.write(JSON.stringify(data));
+		res.end();
+    });
+});
 
 app.use("/static/", express.static(__dirname + '/static'));
 app.listen(PORT);
