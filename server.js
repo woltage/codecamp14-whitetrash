@@ -6,7 +6,7 @@ var app = express();
 var service = require("./service");
 
 var bodyParser = require('body-parser');
-app.use(bodyParser()); 
+app.use(bodyParser());
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -70,5 +70,8 @@ app.post('/trash', function(req, res) {
 });
 
 app.use("/static/", express.static(__dirname + '/static'));
-app.listen(PORT);
+var port = Number(process.env.PORT || 5000);
+app.listen(PORT, function() {
+    console.log("Listening on " + port);
+});
 console.log('Listening on port ' + PORT);
