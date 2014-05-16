@@ -72,6 +72,5 @@ app.post('/trash', function(req, res) {
 app.use("/static/", express.static(__dirname + '/static'));
 var PORT = Number(process.env.PORT || 3000);
 app.listen(PORT, function() {
-    console.log("Listening on " + port);
+    console.log("Listening on " + PORT);
 });
-console.log('Listening on port ' + PORT);
