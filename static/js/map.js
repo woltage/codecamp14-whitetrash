@@ -9,7 +9,10 @@ $(document).ready(function() {
     }
 });
 
+
 function mapInit(lat, lng) {
+
+    getLocations();
     var mapOptions = {
         zoom: 14,
         center: new google.maps.LatLng(lat, lng),
@@ -20,23 +23,31 @@ function mapInit(lat, lng) {
 
 }
 
+
 function addMarker(lat,lng) {
     marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat,lng),
         map: map,
     });
-    markersArray.push(marker);
 }
 
-
 function getLocations() {
+    console.log("getting markers");
     $.ajax({
-      url: '/roskikset',
-      async:false,
-      success: function(data) {
-         $.each(data.key, function(index) {
-            addMarker(data[index].Latitude,data[index].Longitude);
-          });
-      }
-    }); 
+        type: "GET",
+        url: "/roskikset",
+        dataType: "json",
+        success: function(json){
+            console.log("fetched markers");
+            Object.keys(json).slice(0, 30).forEach(function(key) {
+                console.log(key);
+                console.log(json[key]);
+                addMarker(json[key].coordinates[0], json[key].coordinates[1]);
+
+            });
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
 }
