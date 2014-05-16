@@ -16,10 +16,10 @@ $(document).ready(function() {
         console.log("click");
         $.post("/trash", { lat:latitude, lon:longitude}).done(function(data) {
             if (data.success) {
-                alert("Roskakori: " + data.trashId +"\nEtäisyys: " + data.dist + "\nRoskia: " + data.count);
+                alert("Roskakori: " + data.trashId +"\nEtäisyys: " + data.dist + " metriä\nRoskia: " + data.count);
             }
             else {
-                alert("Roskakori: " + data.trashId +"\nEtäisyys: " + data.dist + "metriä\n\nOlet liian kaukana!");
+                alert("Roskakori: " + data.trashId +"\nEtäisyys: " + data.dist + " metriä\n\nOlet liian kaukana!");
             }
             console.log(data);
         });
