@@ -19,3 +19,24 @@ function mapInit(lat, lng) {
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 }
+
+function addMarker(lat,lng) {
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat,lng),
+        map: map,
+    });
+    markersArray.push(marker);
+}
+
+
+function getLocations() {
+    $.ajax({
+      url: '/roskikset',
+      async:false,
+      success: function(data) {
+         $.each(data.key, function(index) {
+            addMarker(data[index].Latitude,data[index].Longitude);
+          });
+      }
+    }); 
+}
