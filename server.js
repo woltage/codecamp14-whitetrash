@@ -1,5 +1,3 @@
-var PORT = 3000;
-
 var express = require('express');
 var app = express();
 
@@ -18,36 +16,32 @@ app.get("/map", function(req, res) {
 	res.render('map');
 });
 
+function respondJson(res, updatedData) {
+    res.writeHead(200, {"Content-Type": "application/json"});
+    res.write(JSON.stringify(updatedData));
+    res.end();
+}
 app.get('/update', function(req, res) {
 	service.updateJson(function(updatedData) {
-		res.writeHead(200, {"Content-Type": "application/json"});
-		res.write(JSON.stringify(updatedData));
-		res.end();
-	});
+        respondJson(res, updatedData);
+    });
 });
 
 app.get("/roskikset", function(req, res) {
 	service.getCurrentData(function(data) {
-		res.writeHead(200, {"Content-Type": "application/json"});
-		res.write(JSON.stringify(data));
-		res.end();
+        respondJson(res, data);
 	})
 });
 
 app.get('/mark/:id', function(req, res) {
 	service.markTrash(req.param('id'), function(updatedData) {
-		//console.log(updatedData);
-		res.writeHead(200, {"Content-Type": "application/json"});
-		res.write(JSON.stringify(updatedData));
-		res.end();
+        respondJson(res, updatedData);
 	});
 });
 
 app.get('/nearestTrashes', function(req, res) {
     service.getNearestTrashes([req.query.lat,req.query.lon], 10, function (data) {
-		res.writeHead(200, {"Content-Type": "application/json"});
-		res.write(JSON.stringify(data));
-		res.end();
+        respondJson(res, data);
     });
 });
 
@@ -56,14 +50,11 @@ app.post('/trash', function(req, res) {
 	var lat = req.body.lat;
 	var lon = req.body.lon;
 	if (!lat || !lon) {
-		writeHead(500);
-		res.end();
+        respondJson(res, {success: false});
 	}
 	else {
 		service.trash([lat, lon], function(data) {
-			res.writeHead(200, {"Content-Type": "application/json"});
-			res.write(JSON.stringify(data));
-			res.end();
+            respondJson(res, data);
 		});
 	}
 

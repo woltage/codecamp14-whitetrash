@@ -83,23 +83,29 @@ exports.getCurrentData = function (callback) {
 
 exports.trash = function(coordinates, callback) {
 	exports.getCurrentData(function(data) {
-		var closestTrashId = closestTrashIdTo(coordinates, data, 1)[0];
-		data[closestTrashId.id].count = data[closestTrashId.id].count +1;
-		//data[closestTrashId].count = data[closestTrashId].count + 1;
-		saveData(data, function(savedData) {
-            var responseData = {
-                success: true,
-                trashId: closestTrashId.id,
-                count: data[closestTrashId.id].count,
-                dist: parseInt(closestTrashId.dist)
-            };
+        if (data) {
+            var closestTrashId = closestTrashIdTo(coordinates, data, 1)[0];
+            data[closestTrashId.id].count = data[closestTrashId.id].count +1;
+            //data[closestTrashId].count = data[closestTrashId].count + 1;
+            saveData(data, function(savedData) {
+                var responseData = {
+                    success: true,
+                    trashId: closestTrashId.id,
+                    count: data[closestTrashId.id].count,
+                    dist: parseInt(closestTrashId.dist)
+                };
 
-            if (closestTrashId.dist > 50) {
-                responseData.success = false;
-            }
-			callback(responseData);
-		});
-	});
+                if (closestTrashId.dist > 50) {
+                    responseData.success = false;
+                }
+                callback(responseData);
+            });
+        }
+        else {
+            callback({success: false, dist: "???"})
+        }
+    });
+
 };
 
 function saveData(data, callback) {
