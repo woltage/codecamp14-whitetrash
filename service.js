@@ -101,7 +101,10 @@ function distance(p1, p2) {
 
 function distancesTo(point, data) {
     return Object.keys(data).map(function(key) {
-        return {trashId: key, coordinates: data[key], dist: distance(point, data[key].coordinates)};
+        var o = {};
+        for (var attrname in data[key]) { o[attrname] = data[key][attrname]; }
+        o.dist = distance(point, data[key].coordinates);
+        return o;
     });
 }
 
