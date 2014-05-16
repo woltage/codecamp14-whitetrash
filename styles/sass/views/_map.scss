@@ -9,7 +9,7 @@
     bottom: 50px;
     cursor: pointer;
     border: 2px solid gray;
-    color: black;
+    color: gray;
     padding-top: 6px;
 }
 
@@ -32,20 +32,24 @@
 		border-radius: 50px; /* Opera 10.5, IE 9 */
 		/*-moz-border-radius: 30px;  Disabled for FF1+ */
 	}
-	.title, .name {
+	.title, .name, .trashes, .cans {
 		display: inline-block;
 		width: 200px;
 		color: gray;
 		position: absolute;
+	}
+
+	.name, .title {
 		left: 110px;
 	}
-
-	.name {
+	.name, .trashes {
 		top: 28px;
-
 	}
-	.title {
+	.title, .cans {
 		top: 56px;
+	}
+	.trashes, .cans {
+		right: 64px;
 	}
 }
 

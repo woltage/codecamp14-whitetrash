@@ -129,7 +129,7 @@ h1 {
   bottom: 50px;
   cursor: pointer;
   border: 2px solid gray;
-  color: black;
+  color: gray;
   padding-top: 6px;
 }
 
@@ -159,20 +159,27 @@ h1 {
   /*-moz-border-radius: 30px;  Disabled for FF1+ */
 }
 /* line 35, ../../styles/sass/views/_map.scss */
-.avatar-area .title, .avatar-area .name {
+.avatar-area .title, .avatar-area .name, .avatar-area .trashes, .avatar-area .cans {
   display: inline-block;
   width: 200px;
   color: gray;
   position: absolute;
+}
+/* line 42, ../../styles/sass/views/_map.scss */
+.avatar-area .name, .avatar-area .title {
   left: 110px;
 }
-/* line 43, ../../styles/sass/views/_map.scss */
-.avatar-area .name {
+/* line 45, ../../styles/sass/views/_map.scss */
+.avatar-area .name, .avatar-area .trashes {
   top: 28px;
 }
-/* line 47, ../../styles/sass/views/_map.scss */
-.avatar-area .title {
+/* line 48, ../../styles/sass/views/_map.scss */
+.avatar-area .title, .avatar-area .cans {
   top: 56px;
+}
+/* line 51, ../../styles/sass/views/_map.scss */
+.avatar-area .trashes, .avatar-area .cans {
+  right: 64px;
 }
 
 /* line 29, ../../styles/sass/main.scss */
