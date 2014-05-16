@@ -1,0 +1,26 @@
+{
+  "name": "codecamp14-whitetrash",
+  "version": "0.0.1",
+  "description": "Humoristinen roskienkeräyspeli",
+  "main": "packages.js",
+  "dependencies": {
+    "express": "~4.2.0",
+    "jade": "~1.3.1",
+    "geojson-utils": "~1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/woltage/codecamp14-whitetrash.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/woltage/codecamp14-whitetrash/issues"
+  },
+  "homepage": "https://github.com/woltage/codecamp14-whitetrash"
+}
