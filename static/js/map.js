@@ -99,6 +99,9 @@ function getLocations(lat, lng) {
         success: function(json){
             console.log("fetched markers");
             addUser(lat, lng);
+            trashMarkers.forEach(function (each) {
+                each.setMap(null);
+            });
             trashMarkers = [];
             json.slice(0, 1).forEach(function(trash) {
                 addMarker(trash.coordinates[0], trash.coordinates[1], trash.dist < 50);
