@@ -4,8 +4,14 @@
 }
 
 #markTrash {
-    background: none;
+    background: white;
     position: absolute;
     bottom: 50px;
     cursor: pointer;
+    border: 2px solid gray;
+    color: black;
+}
+
+.map-page {
+	height: 100vh;
 }
