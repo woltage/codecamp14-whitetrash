@@ -11,16 +11,12 @@ app.get("/", function(req, res) {
 	res.render('index', service.getSomeShit());
 });
 
-app.get('/ok', function(req, res){
-	res.writeHead(200, {"Content-Type": "application/json"});
-	res.write(JSON.stringify(service.getSomeShit()));
-	res.end();
-});
-
 app.get('/update', function(req, res) {
-	service.updateJson();
-	res.write("OK");
-	res.end();
+	service.updateJson(function(updatedData) {
+		res.writeHead(200, {"Content-Type": "application/json"});
+		res.write(JSON.stringify(updatedData));
+		res.end();
+	});
 });
 
 app.get("/roskikset", function(req, res) {
