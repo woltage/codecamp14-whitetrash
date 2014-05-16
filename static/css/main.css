@@ -161,9 +161,33 @@ h1 {
   z-index: 12000;
   background: white;
   width: 100%;
-  padding: 4px;
+  padding: 8px;
 }
 /* line 36, ../../styles/sass/views/_map.scss */
+.avatar-area .avatar-frame {
+  position: relative;
+}
+/* line 38, ../../styles/sass/views/_map.scss */
+.avatar-area .avatar-frame:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-border-radius: 5vh;
+  /* Saf3+, Chrome */
+  border-radius: 5vh;
+  /* Opera 10.5, IE 9 */
+  -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.55);
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.55);
+}
+/* line 51, ../../styles/sass/views/_map.scss */
+.avatar-area .avatar-frame:hover {
+  opacity: 0.7;
+}
+/* line 55, ../../styles/sass/views/_map.scss */
 .avatar-area .avatar-frame, .avatar-area .avatar-frame img {
   width: 10vh;
   height: 10vh;
@@ -171,9 +195,8 @@ h1 {
   /* Saf3+, Chrome */
   border-radius: 5vh;
   /* Opera 10.5, IE 9 */
-  /*-moz-border-radius: 30px;  Disabled for FF1+ */
 }
-/* line 43, ../../styles/sass/views/_map.scss */
+/* line 61, ../../styles/sass/views/_map.scss */
 .avatar-area .title, .avatar-area .name, .avatar-area .trashes, .avatar-area .cans {
   display: inline-block;
   width: 34vw;
@@ -181,23 +204,23 @@ h1 {
   position: absolute;
   font-size: 2.4vh;
 }
-/* line 51, ../../styles/sass/views/_map.scss */
+/* line 69, ../../styles/sass/views/_map.scss */
 .avatar-area .name, .avatar-area .title {
-  left: 11vh;
+  left: 12vh;
 }
-/* line 54, ../../styles/sass/views/_map.scss */
+/* line 72, ../../styles/sass/views/_map.scss */
 .avatar-area .name, .avatar-area .trashes {
   top: 2vh;
 }
-/* line 57, ../../styles/sass/views/_map.scss */
+/* line 75, ../../styles/sass/views/_map.scss */
 .avatar-area .title, .avatar-area .cans {
   top: 6vh;
 }
-/* line 60, ../../styles/sass/views/_map.scss */
+/* line 78, ../../styles/sass/views/_map.scss */
 .avatar-area .trashes, .avatar-area .cans {
   right: 2vh;
 }
-/* line 63, ../../styles/sass/views/_map.scss */
+/* line 81, ../../styles/sass/views/_map.scss */
 .avatar-area .badge {
   margin-left: 8px;
 }
