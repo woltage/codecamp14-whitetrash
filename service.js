@@ -87,7 +87,17 @@ exports.trash = function(coordinates, callback) {
 		data[closestTrashId.id].count = data[closestTrashId.id].count +1;
 		//data[closestTrashId].count = data[closestTrashId].count + 1;
 		saveData(data, function(savedData) {
-			callback({trashId: closestTrashId.id, count: data[closestTrashId.id].count });
+            var responseData = {
+                success: true,
+                trashId: closestTrashId.id,
+                count: data[closestTrashId.id].count,
+                dist: parseInt(closestTrashId.dist)
+            };
+
+            if (closestTrashId.dist > 50) {
+                responseData.success = false;
+            }
+			callback(responseData);
 		});
 	});
 };

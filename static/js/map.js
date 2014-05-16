@@ -15,7 +15,12 @@ $(document).ready(function() {
     $('#markTrash').click(function(){
         console.log("click");
         $.post("/trash", { lat:latitude, lon:longitude}).done(function(data) {
-            alert("Roskakori: " + data.trashId + "\nRoskia: " + data.count);
+            if (data.success) {
+                alert("Roskakori: " + data.trashId +"\nEtäisyys: " + data.dist + "\nRoskia: " + data.count);
+            }
+            else {
+                alert("Roskakori: " + data.trashId +"\nEtäisyys: " + data.dist + "metriä\n\nOlet liian kaukana!");
+            }
             console.log(data);
         });
     });
@@ -87,7 +92,6 @@ function getLocations(lat, lng) {
                 addMarker(trash.coordinates[0], trash.coordinates[1], false);
                 addAcceptZone(trash.coordinates[0], trash.coordinates[1]);
             });
-
         },
         error: function(err){
             console.log(err);
