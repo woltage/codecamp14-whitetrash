@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 function mapInit(lat, lng) {
 
-    getLocations();
+    getLocations(lat, lng);
     var mapOptions = {
         zoom: 14,
         center: new google.maps.LatLng(lat, lng),
@@ -31,20 +31,20 @@ function addMarker(lat,lng) {
     });
 }
 
-function getLocations() {
+function getLocations(lat, lng) {
     console.log("getting markers");
     $.ajax({
         type: "GET",
-        url: "/roskikset",
+        url: "/nearestTrashes",
         dataType: "json",
+        data: {lat: lat, lon: lng},
         success: function(json){
             console.log("fetched markers");
-            Object.keys(json).slice(0, 30).forEach(function(key) {
-                console.log(key);
-                console.log(json[key]);
-                addMarker(json[key].coordinates[0], json[key].coordinates[1]);
 
+            json.forEach(function(trash) {
+              addMarker(trash.ccoordinates[0], trash.coordinates[1]);  
             });
+
         },
         error: function(err){
             console.log(err);
