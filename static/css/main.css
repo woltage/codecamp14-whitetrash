@@ -70,7 +70,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   color: white;
   font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
+  font-size: 5.9vh;
 }
 
 /* line 10, ../../styles/sass/partials/_theme.scss */
@@ -165,31 +165,30 @@ h1 {
 /* line 39, ../../styles/sass/views/_map.scss */
 .avatar-area .title, .avatar-area .name, .avatar-area .trashes, .avatar-area .cans {
   display: inline-block;
-  width: 200px;
+  width: 240px;
   color: gray;
   position: absolute;
+  font-size: 1.4rem;
 }
-/* line 46, ../../styles/sass/views/_map.scss */
+/* line 47, ../../styles/sass/views/_map.scss */
 .avatar-area .name, .avatar-area .title {
   left: 110px;
 }
-/* line 49, ../../styles/sass/views/_map.scss */
+/* line 50, ../../styles/sass/views/_map.scss */
 .avatar-area .name, .avatar-area .trashes {
   top: 28px;
 }
-/* line 52, ../../styles/sass/views/_map.scss */
+/* line 53, ../../styles/sass/views/_map.scss */
 .avatar-area .title, .avatar-area .cans {
   top: 56px;
 }
-/* line 55, ../../styles/sass/views/_map.scss */
+/* line 56, ../../styles/sass/views/_map.scss */
 .avatar-area .trashes, .avatar-area .cans {
   right: 64px;
 }
-/* line 58, ../../styles/sass/views/_map.scss */
+/* line 59, ../../styles/sass/views/_map.scss */
 .avatar-area .badge {
-  position: absolute;
-  top: 50px;
-  left: 209px;
+  margin-left: 8px;
 }
 
 /* line 29, ../../styles/sass/main.scss */
