@@ -4,6 +4,10 @@ var express = require('express');
 var app = express();
 
 var service = require("./service");
+
+var bodyParser = require('body-parser');
+app.use(bodyParser()); 
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
@@ -45,6 +49,24 @@ app.get('/nearestTrashes', function(req, res) {
 		res.write(JSON.stringify(data));
 		res.end();
     });
+});
+
+app.post('/trash', function(req, res) {
+	console.log(req.body);
+	var lat = req.body.lat;
+	var lon = req.body.lon;
+	if (!lat || !lon) {
+		writeHead(500);
+		res.end();
+	}
+	else {
+		service.trash([lat, lon], function(data) {
+			res.writeHead(200, {"Content-Type": "application/json"});
+			res.write(JSON.stringify(data));
+			res.end();
+		});
+	}
+
 });
 
 app.use("/static/", express.static(__dirname + '/static'));

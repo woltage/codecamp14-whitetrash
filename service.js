@@ -81,6 +81,17 @@ exports.getCurrentData = function (callback) {
 	});
 };
 
+exports.trash = function(coordinates, callback) {
+	exports.getCurrentData(function(data) {
+		var closestTrashId = closestTrashIdTo(coordinates, data, 1)[0];
+		data[closestTrashId.id].count = data[closestTrashId.id].count +1;
+		//data[closestTrashId].count = data[closestTrashId].count + 1;
+		saveData(data, function(savedData) {
+			callback({trashId: closestTrashId.id, count: data[closestTrashId.id].count });
+		});
+	});
+};
+
 function saveData(data, callback) {
 	fs.writeFile(FILE_NAME, JSON.stringify(data), function(err) {
 		if (err) {
@@ -104,6 +115,7 @@ function distancesTo(point, data) {
         var o = {};
         for (var attrname in data[key]) { o[attrname] = data[key][attrname]; }
         o.dist = distance(point, data[key].coordinates);
+    	o.id = key;
         return o;
     });
 }

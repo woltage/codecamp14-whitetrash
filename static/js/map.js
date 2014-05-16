@@ -1,12 +1,24 @@
 var map;
+var latitude;
+var longitude;
 $(document).ready(function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(data) {
-            mapInit(data.coords.latitude, data.coords.longitude);
+            latitude = data.coords.latitude;
+            longitude = data.coords.longitude;
+            mapInit(latitude, longitude);
         });
     } else {
         error('Sad banda :,(');
     }
+
+    $('#markTrash').click(function(){
+        console.log("click");
+        $.post("/trash", { lat:latitude, lon:longitude}).done(function(data) {
+            alert("Roskakori: " + data.trashId + "\nRoskia: " + data.count);
+            console.log(data);
+        });
+    });
 });
 
 
