@@ -71,9 +71,10 @@ body {
   color: white;
   font-family: 'Open Sans', sans-serif;
   font-size: 5.9vh;
+  overflow: hidden;
 }
 
-/* line 10, ../../styles/sass/partials/_theme.scss */
+/* line 11, ../../styles/sass/partials/_theme.scss */
 h1 {
   text-transform: uppercase;
   font-family: 'Open Sans Condensed', sans-serif;
