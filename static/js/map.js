@@ -40,11 +40,11 @@ function mapInit(lat, lng) {
 }
 
 
-function addMarker(lat,lng) {
+function addMarker(lat,lng,isNearest) {
     marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat,lng),
         map: map,
-        icon: '/static/img/roskis-icon.png',
+        icon: isNearest ? '/static/img/roskis-closest-icon.png' : '/static/img/roskis-icon.png',
     });
 }
 
@@ -71,8 +71,12 @@ function getLocations(lat, lng) {
         data: {lat: lat, lon: lng},
         success: function(json){
             console.log("fetched markers");
-            json.forEach(function(trash) {
-                addMarker(trash.coordinates[0], trash.coordinates[1]);
+            json.slice(0, 1).forEach(function(trash) {
+                addMarker(trash.coordinates[0], trash.coordinates[1], true);
+                addAcceptZone(trash.coordinates[0], trash.coordinates[1]);
+            });
+            json.slice(1,10).forEach(function(trash) {
+                addMarker(trash.coordinates[0], trash.coordinates[1], false);
                 addAcceptZone(trash.coordinates[0], trash.coordinates[1]);
             });
 
