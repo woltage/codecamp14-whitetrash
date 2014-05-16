@@ -9,10 +9,7 @@ $(document).ready(function() {
             mapInit(latitude, longitude);
         });
         navigator.geolocation.watchPosition(function (data) {
-            if (userMarker) {
-                userMarker.setPosition(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
-                console.log(userMarker);
-            }
+            getLocations(data.coords.latitude, data.coords.longitude);
             if (map) {
                 map.panTo(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
             }
@@ -57,19 +54,25 @@ function mapInit(lat, lng) {
 var userMarker = null;
 
 function addUser(lat,lng) {
-    userMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat,lng),
-        map: map,
-        icon: '/static/img/user-marker.png',
-    });
+    if (userMarker) {
+        userMarker.setPosition(new google.maps.LatLng(lat, lng));
+    } else {
+        userMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat,lng),
+            map: map,
+            icon: '/static/img/user-marker.png',
+        });
+    }
 }
 
+var trashMarkers = [];
+
 function addMarker(lat,lng,isNearest) {
-    marker = new google.maps.Marker({
+    trashMarkers.push(new google.maps.Marker({
         position: new google.maps.LatLng(lat,lng),
         map: map,
         icon: isNearest ? '/static/img/roskis-closest-icon.png' : '/static/img/roskis-icon.png',
-    });
+    }));
 }
 
 function addAcceptZone(lat,lng) {
@@ -96,6 +99,7 @@ function getLocations(lat, lng) {
         success: function(json){
             console.log("fetched markers");
             addUser(lat, lng);
+            trashMarkers = [];
             json.slice(0, 1).forEach(function(trash) {
                 addMarker(trash.coordinates[0], trash.coordinates[1], trash.dist < 50);
                 addAcceptZone(trash.coordinates[0], trash.coordinates[1]);
