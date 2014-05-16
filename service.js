@@ -3,10 +3,6 @@ var fs = require('fs');
 
 var FILE_NAME = "roskikset.json";
 
-exports.getSomeShit = function() {
-	return {value: "OK"};
-}
-
 exports.updateJson = function() {
 
 	http.get({
@@ -43,18 +39,21 @@ exports.updateJson = function() {
 	});
 }
 
-function saveData(data, callback) {
-	fs.writeFile(FILE_NAME, JSON.stringify(data), function(err) {
-		if (err) {
-			console.log(err);
-			callback();
+exports.markTrash = function(id, callback) {
+	this.getCurrentData(function(data) {
+		var trash = data[id];
+		if (!trash) {
+			console.log("Trying to get trash with invalid id: " + id);
+			callback(null);
 		}
 		else {
-			console.log("saved: ",data);
-			callback();
+			data[id].count = trash.count+1;
+			data[id].time = new Date();
+			saveData(data, callback);
 		}
 	});
 };
+
 
 exports.getCurrentData = function (callback) {
 	fs.readFile(FILE_NAME, function(err, fileData) {
@@ -67,4 +66,17 @@ exports.getCurrentData = function (callback) {
 			callback(data);
 		}
 	});
-}
+};
+
+function saveData(data, callback) {
+	fs.writeFile(FILE_NAME, JSON.stringify(data), function(err) {
+		if (err) {
+			console.log(err);
+			callback();
+		}
+		else {
+			//console.log("saved: ",data);
+			callback(data);
+		}
+	});
+};
