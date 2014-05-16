@@ -1,4 +1,4 @@
-/* line 17, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -66,12 +66,55 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /*------------------------------------*\
     COMPONENTS
 \*------------------------------------*/
+/* line 3, ../../styles/sass/partials/_theme.scss */
+body {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+/* line 10, ../../styles/sass/partials/_theme.scss */
+h1 {
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+}
+
+/* line 1, ../../styles/sass/partials/_buttons.scss */
+.btn {
+  height: 64px;
+  width: 300px;
+  margin-left: 30%;
+  padding-top: 17px;
+  border: 3px solid white;
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 1.4rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 /* VIEWS
 ------------------------------------------------------------------------------*/
-/* line 1, C:/Users/hannuto/Documents/GitHub/codecamp14-whitetrash/styles/sass/views/_starting-page.scss */
+/* line 1, ../../styles/sass/views/_starting-page.scss */
 .front-page {
   height: 100vh;
   background-color: black;
   background-image: url(/static/img/front-bg.jpg);
   background-size: 100% 100%;
+}
+/* line 7, ../../styles/sass/views/_starting-page.scss */
+.front-page h1 {
+  margin: 0 auto;
+  padding-top: 60%;
+  padding-bottom: 80px;
+  display: block;
+  width: 300px;
+}
+
+/* line 28, ../../styles/sass/main.scss */
+section {
+  width: 100%;
 }
