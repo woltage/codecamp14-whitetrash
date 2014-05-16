@@ -110,7 +110,7 @@ h1 {
 .front-page {
   height: 100vh;
   background-color: black;
-  background-image: url(./static/img/front-bg.jpg);
+  background-image: url(/static/img/front-bg.jpg);
   background-size: 100% 100%;
 }
 /* line 7, ../../styles/sass/views/_starting-page.scss */
