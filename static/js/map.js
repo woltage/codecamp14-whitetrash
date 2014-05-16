@@ -42,7 +42,7 @@ function getLocations(lat, lng) {
             console.log("fetched markers");
 
             json.forEach(function(trash) {
-              addMarker(trash.ccoordinates[0], trash.coordinates[1]);  
+              addMarker(trash.coordinates[0], trash.coordinates[1]);  
             });
 
         },
