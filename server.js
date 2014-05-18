@@ -33,12 +33,6 @@ app.get("/roskikset", function(req, res) {
 	})
 });
 
-app.get('/mark/:id', function(req, res) {
-	service.markTrash(req.param('id'), function(updatedData) {
-        respondJson(res, updatedData);
-	});
-});
-
 app.get('/nearestTrashes', function(req, res) {
     service.getNearestTrashes([req.query.lat,req.query.lon], 10, function (data) {
         respondJson(res, data);
